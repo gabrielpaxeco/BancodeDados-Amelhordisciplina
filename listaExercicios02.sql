@@ -254,3 +254,11 @@ BEGIN
 
     INSERT INTO Livro (titulo, autor, categoria) VALUES (titulo, autor, categoria);
 END;
+
+
+-- 8 
+
+CREATE PROCEDURE sp_AutorMaisAntigo(OUT nomeAutor VARCHAR(255))
+BEGIN
+    SELECT nome INTO nomeAutor FROM Autor ORDER BY data_nascimento LIMIT 1;
+END;
