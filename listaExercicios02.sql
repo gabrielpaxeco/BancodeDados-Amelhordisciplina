@@ -241,3 +241,16 @@ BEGIN
 
     CLOSE cur;
 END;
+
+
+-- 7
+
+CREATE PROCEDURE sp_AdicionarLivro(IN titulo VARCHAR(255), IN autor VARCHAR(255), IN categoria VARCHAR(50))
+BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+    BEGIN
+        -- Faça algo com o erro, como registrar em um log ou retornar uma mensagem de erro
+    END;
+
+    INSERT INTO Livro (titulo, autor, categoria) VALUES (titulo, autor, categoria);
+END;
