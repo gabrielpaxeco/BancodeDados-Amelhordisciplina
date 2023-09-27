@@ -270,3 +270,17 @@ CREATE PROCEDURE sp_ContarLivrosPorCategoria(IN categoria VARCHAR(255), OUT tota
 BEGIN
     SELECT COUNT(*) INTO total FROM livros WHERE categoria = categoria;
 END;
+
+
+-- 10 
+
+
+CREATE PROCEDURE sp_LivrosESeusAutores()
+BEGIN
+    SELECT Livro.titulo, Autor.nome, Autor.sobrenome
+    FROM Livro
+    INNER JOIN Autor ON Livro.id_autor = Autor.id;
+END; 
+//
+
+DELIMITER ;
